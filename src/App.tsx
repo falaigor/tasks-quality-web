@@ -19,7 +19,7 @@ export function App() {
         <div className="bg-zinc-50 rounded-xl p-4">
           <span className="text-xl font-bold">Week Tasks</span>
 
-          <TaskItem />
+          <TaskItem status="in-progress" />
         </div>
       </div>
     </DefaultLayout>
