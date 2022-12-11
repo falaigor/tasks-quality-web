@@ -1,6 +1,6 @@
 export const Resume = () => {
   return (
-    <div className="w-2/6 h-screen bg-zinc-50 p-8 flex flex-col">
+    <div className="w-2/6 h-screen bg-zinc-50 p-8 flex flex-col drop-shadow-xl">
       <span className="text-xl font-bold pb-4">Resume</span>
       <div className="flex gap-8">
         <div className="bg-zinc-100 drop-shadow-xl w-1/2 h-40 bg-[url('/chart-up.svg')] bg-cover bg-no-repeat bg-center rounded-3xl p-8 text-center">

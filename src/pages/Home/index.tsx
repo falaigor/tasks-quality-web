@@ -3,7 +3,7 @@ import { TaskItem } from "../../components/TaskItem";
 
 export function Home() {
   return (
-    <div>
+    <div className="drop-shadow-sm">
       <div className="flex justify-between">
         <h1 className="text-3xl font-bold mb-4">Welcome back Igor</h1>
         <button className="flex items-center gap-2 p-4 text-blue-500 hover:text-blue-900">

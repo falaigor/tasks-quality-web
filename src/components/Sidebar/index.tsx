@@ -2,7 +2,7 @@ import { Clipboard, HouseSimple } from "phosphor-react";
 
 export function Sidebar() {
   return (
-    <aside className="w-80 pl-8 pt-8">
+    <aside className="w-24 sm:w-80 pl-8 pt-8">
       <img src="/logo-dark.svg" width="175px" alt="" />
       <nav className="mt-4">
         <ul>
