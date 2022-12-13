@@ -1,11 +1,11 @@
 import { Plus } from "phosphor-react";
+import { Summary } from "./components/Summary";
 import { TaskItem } from "../../components/TaskItem";
-import { Resume } from "./components/Resume";
 
 export function Home() {
   return (
     <div className=" flex flex-col gap-10">
-      <Resume />
+      <Summary />
 
       <div className="bg-zinc-50 rounded-xl p-4">
         <div className="flex justify-between">

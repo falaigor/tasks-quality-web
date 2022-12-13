@@ -1,4 +1,4 @@
-export const Resume = () => {
+export function Summary() {
   return (
     <div className="w-full bg-zinc-50 p-9 rounded-2xl flex flex-col drop-shadow-sm">
       <span className="text-3xl font-extrabold pb-4">Resume</span>
@@ -23,4 +23,4 @@ export const Resume = () => {
       </div>
     </div>
   );
-};
+}
