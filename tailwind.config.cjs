@@ -7,7 +7,7 @@ module.exports = {
         Vietnam: ["Be Vietnam Pro", "sans-serif"],
       },
       colors: {
-        primary: "#ECF3FE",
+        primary: "#F3F4F6",
         gray: {
           100: "#F5F7FB",
           300: "#989EA3",
