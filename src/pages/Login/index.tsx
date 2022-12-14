@@ -1,4 +1,3 @@
-import { GoogleLogo } from "phosphor-react";
 import { Link } from "react-router-dom";
 
 export function LoginPage() {

@@ -1,4 +1,4 @@
-import { Checks, Clipboard, HouseSimple } from "phosphor-react";
+import { Checks, HouseSimple } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 
 export function Sidebar() {
