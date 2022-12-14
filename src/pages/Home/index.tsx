@@ -1,6 +1,6 @@
 import { Plus } from "phosphor-react";
 import { Summary } from "./components/Summary";
-import { TaskItem } from "../../components/TaskItem";
+import { TaskItem } from "@/components/TaskItem";
 
 export function HomePage() {
   const transactions = [
