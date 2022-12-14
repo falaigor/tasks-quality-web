@@ -3,25 +3,8 @@ import { Summary } from "./components/Summary";
 import { TaskItem } from "@/components/TaskItem";
 
 export function HomePage() {
-  const transactions = [
-    {
-      id: 1,
-      title: "O titulo maneiro de uma task",
-      date: new Date().getDay(),
-      issues: 0,
-      status: "in-progress",
-    },
-    {
-      id: 2,
-      title: "O titulo maneiro de uma task",
-      date: new Date().getDay(),
-      issuesQuantity: 0,
-      status: "waiting",
-    },
-  ];
-
   return (
-    <div className=" flex flex-col gap-10">
+    <div className="flex flex-col gap-10">
       <Summary />
 
       <div className="bg-zinc-50 rounded-xl p-9">
