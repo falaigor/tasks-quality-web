@@ -2,7 +2,7 @@ import { Plus } from "phosphor-react";
 import { Summary } from "./components/Summary";
 import { TaskItem } from "../../components/TaskItem";
 
-export function Home() {
+export function HomePage() {
   const transactions = [
     {
       id: 1,
