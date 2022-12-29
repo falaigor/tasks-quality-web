@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { DefaultLayout } from "../layouts/Default";
 import { HomePage } from "@/pages/Home";
 import { TasksPage } from "@/pages/Tasks";
 import { LoginPage } from "@/pages/Login";
+
+import { DefaultLayout } from "@/layouts/Default";
+import { RestrictedRoute } from "./RestrictedRoute";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        element: (
+          <RestrictedRoute>
+            <HomePage />
+          </RestrictedRoute>
+        ),
       },
       {
         path: "/tasks",

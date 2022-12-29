@@ -31,8 +31,10 @@ interface AuthResponse {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
+  const existsUserToken = !!localStorage.getItem("@tasksQuality:token");
+
   const [user, setUser] = useState<UserType | null>(null);
-  const [isUserLogger, setIsUserLogger] = useState(false);
+  const [isUserLogger, setIsUserLogger] = useState(existsUserToken);
   const signInGithubUrl = `http://github.com/login/oauth/authorize?scope=user&client_id=${process.env.VITE_GITHUB_API_CLIENT_ID}`;
 
   async function signInGithub(githubCode: string) {
@@ -43,7 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const { token, user } = response.data;
 
     localStorage.setItem("@tasksQuality:token", token);
-    setIsUserLogger(true);
+    setIsUserLogger(existsUserToken);
     setUser(user);
   }
 

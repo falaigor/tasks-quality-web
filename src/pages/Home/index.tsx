@@ -3,6 +3,7 @@ import { Plus } from "phosphor-react";
 import { Summary } from "./components/Summary";
 import { TaskItem } from "@/components/TaskItem";
 import { Modal } from "@/components/Modal";
+import { useAuth } from "../../contexts/authContext";
 
 interface IModal {
   onOpen(): void;
