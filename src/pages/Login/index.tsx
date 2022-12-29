@@ -1,10 +1,12 @@
 import { useAuth } from "@/contexts/authContext";
+import { Navigate } from "react-router-dom";
 
 export function LoginPage() {
-  const { signInGithubUrl, user } = useAuth();
-  console.log(user);
+  const { signInGithubUrl, isUserLogger } = useAuth();
 
-  return (
+  return isUserLogger ? (
+    <Navigate to="/" replace />
+  ) : (
     <section className="max-w-4xl m-auto h-screen flex justify-center items-center">
       <div className="flex flex-col bg-zinc-50 rounded-xl p-9">
         <img src="/logo-dark.svg" className="mb-4" width="150px" alt="" />

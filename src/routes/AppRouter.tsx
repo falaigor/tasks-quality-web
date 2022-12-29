@@ -25,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/tasks",
-        element: <TasksPage />,
+        element: (
+          <RestrictedRoute>
+            <TasksPage />
+          </RestrictedRoute>
+        ),
       },
     ],
   },

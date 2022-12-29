@@ -2,7 +2,7 @@ import { forwardRef, Fragment, useImperativeHandle, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 export const Modal = forwardRef((props, ref) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onOpen = () => setIsOpen(true);
   const onClose = () => setIsOpen(false);
