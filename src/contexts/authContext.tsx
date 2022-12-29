@@ -7,10 +7,10 @@ import {
 } from "react";
 import { api } from "@/services/api";
 import { UserType } from "@/types/user";
-import { Navigate } from "react-router-dom";
 
 interface AuthContextData {
   user: UserType | null;
+  token: string | null;
   isUserLogger: boolean;
   signInGithubUrl: string;
   signOut: () => void;
@@ -33,6 +33,7 @@ interface AuthResponse {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const existsUserToken = !!localStorage.getItem("@tasksQuality:token");
+  const token = localStorage.getItem("@tasksQuality:token");
 
   const [user, setUser] = useState<UserType | null>(null);
   const [isUserLogger, setIsUserLogger] = useState(existsUserToken);
@@ -71,7 +72,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   return (
     <AuthContext.Provider
-      value={{ signOut, signInGithubUrl, user, isUserLogger }}
+      value={{ signOut, signInGithubUrl, user, token, isUserLogger }}
     >
       {children}
     </AuthContext.Provider>
