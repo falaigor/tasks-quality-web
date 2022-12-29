@@ -1,10 +1,13 @@
-import { Checks, HouseSimple } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import { Checks, HouseSimple, SignOut } from "phosphor-react";
+import { useAuth } from "@/contexts/authContext";
 
 export function Sidebar() {
+  const { isUserLogger, signOut } = useAuth();
+
   const variant = {
-    active: `p-4 my-2 gap-2 text-sm text-zinc-50 bg-primary rounded-xl flex flex-col justify-center items-center`,
-    default: `p-4 my-2 gap-2 text-sm hover:text-zinc-50 hover:bg-primary transition-all rounded-xl flex flex-col justify-center items-center`,
+    active: `w-full p-4 my-2 gap-2 text-sm text-zinc-50 bg-primary rounded-xl flex flex-col justify-center items-center`,
+    default: `w-full p-4 my-2 gap-2 text-sm hover:text-zinc-50 hover:bg-primary transition-all rounded-xl flex flex-col justify-center items-center`,
   };
 
   return (
@@ -35,6 +38,15 @@ export function Sidebar() {
                 Tasks
               </NavLink>
             </li>
+
+            {isUserLogger ? (
+              <li>
+                <button onClick={() => signOut()} className={variant.default}>
+                  <SignOut weight="bold" size={20} />
+                  Logout
+                </button>
+              </li>
+            ) : null}
           </ul>
         </nav>
       </aside>

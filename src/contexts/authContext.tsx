@@ -7,6 +7,7 @@ import {
 } from "react";
 import { api } from "@/services/api";
 import { UserType } from "@/types/user";
+import { Navigate } from "react-router-dom";
 
 interface AuthContextData {
   user: UserType | null;
@@ -45,7 +46,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const { token, user } = response.data;
 
     localStorage.setItem("@tasksQuality:token", token);
-    setIsUserLogger(existsUserToken);
+    setIsUserLogger(true);
     setUser(user);
   }
 
