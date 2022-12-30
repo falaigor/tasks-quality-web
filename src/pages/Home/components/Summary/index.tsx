@@ -4,7 +4,7 @@ interface SummaryProps {
 }
 
 export function Summary({ quantityTasks, quantityIssues }: SummaryProps) {
-  const averageIssues = (quantityTasks / quantityIssues).toFixed(2);
+  const averageIssues = 0 || (quantityTasks / quantityIssues).toFixed(2);
 
   return (
     <div className="w-full bg-zinc-50 p-9 rounded-2xl flex flex-col drop-shadow-sm">

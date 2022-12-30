@@ -73,9 +73,9 @@ export function HomePage() {
             <p className="text-center">Data Final</p>
             <p className="text-center mr-4 ">Issues</p>
           </div>
-          <TaskItem status="in-progress" />
-          <TaskItem status="waiting" />
-          <TaskItem status="complete" />
+          {tasks.map((task) => (
+            <TaskItem key={task.id} {...task} />
+          ))}
         </div>
       </div>
     </div>
