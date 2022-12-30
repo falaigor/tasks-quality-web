@@ -7,6 +7,7 @@ import {
 } from "react";
 import { api } from "@/services/api";
 import { UserType } from "@/types/user";
+import jwt from "jwt-decode";
 
 interface AuthContextData {
   user: UserType | null;
@@ -27,8 +28,18 @@ interface AuthResponse {
   user: {
     id: string;
     name: string;
+    email: string;
     avatar: string;
   };
+}
+
+export interface tokenType {
+  email: string;
+  sub: string;
+}
+
+interface UserRequest {
+  user: UserType;
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
@@ -57,6 +68,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
     localStorage.removeItem("@tasksQuality:token");
   }
 
+  async function fetchUser() {
+    if (token) {
+      const { sub: userId } = jwt<tokenType>(token);
+
+      const { data } = await api.get<UserRequest>(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const { user } = data;
+
+      setIsUserLogger(true);
+      setUser(user);
+    }
+  }
+
   useEffect(() => {
     const url = window.location.href;
     const hasGithubCode = url.includes("?code=");
@@ -68,6 +94,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       signInGithub(githubCode);
     }
+  }, []);
+
+  useEffect(() => {
+    fetchUser();
   }, []);
 
   return (

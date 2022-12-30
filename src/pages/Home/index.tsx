@@ -4,9 +4,10 @@ import { Plus } from "phosphor-react";
 import { Summary } from "./components/Summary";
 import { TaskItem } from "@/components/TaskItem";
 import { Modal } from "@/components/Modal";
-import { useAuth } from "@/contexts/authContext";
+import { tokenType, useAuth } from "@/contexts/authContext";
 import { api } from "@/services/api";
 import { TaskProps } from "@/types/task";
+import jwt from "jwt-decode";
 
 interface IModal {
   onOpen(): void;
@@ -17,7 +18,7 @@ interface TasksResponse {
 }
 
 export function HomePage() {
-  const { user, token } = useAuth();
+  const { token } = useAuth();
   const [tasks, setTasks] = useState<TaskProps[]>([]);
 
   const modalRef = useRef<IModal>(null);
@@ -36,13 +37,17 @@ export function HomePage() {
 
   async function fetchTasks() {
     try {
-      const { data } = await api.get<TasksResponse>(`/tasks/from/${user?.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      if (token) {
+        const { sub: userId } = jwt<tokenType>(token);
 
-      const { tasks } = data;
+        const { data } = await api.get<TasksResponse>(`/tasks/from/${userId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-      setTasks(tasks);
+        const { tasks } = data;
+
+        setTasks(tasks);
+      }
     } catch (err) {}
   }
 
