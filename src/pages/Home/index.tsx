@@ -19,6 +19,7 @@ interface TasksResponse {
 export function HomePage() {
   const { user, token } = useAuth();
   const [tasks, setTasks] = useState<TaskProps[]>([]);
+
   const modalRef = useRef<IModal>(null);
   const handleClickOpenModal = useCallback(
     () => modalRef?.current?.onOpen(),
