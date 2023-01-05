@@ -1,7 +1,7 @@
 import { TaskProps } from "@/types/task";
 import { useCallback, useRef } from "react";
 import { dateFormatter } from "@/utils/formatter";
-import { TaskDetailsModal } from "@/components/Modal/TaskDetails";
+import { TaskDetailsModal } from "@/components/ApplicationModal/TaskDetails";
 
 interface IModal {
   onOpen(): void;

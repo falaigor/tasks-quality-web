@@ -3,7 +3,7 @@ import { Plus } from "phosphor-react";
 
 import { Summary } from "./components/Summary";
 import { TaskItem } from "@/components/TaskItem";
-import { Modal } from "@/components/Modal";
+import { Modal } from "@/components/ApplicationModal";
 import { tokenType, useAuth } from "@/contexts/authContext";
 import { api } from "@/services/api";
 import { TaskProps } from "@/types/task";
